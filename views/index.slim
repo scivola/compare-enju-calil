@@ -1,0 +1,39 @@
+form action=url_for("./")
+  input type="text" name="q" value=@q autofocus=""
+  input type="submit" value="検索"
+
+- if @common
+  table.counts
+    thead: tr
+      th 共通
+      th Enju のみ
+      th カーリルのみ
+    tr
+      td.count = @common.count
+      td.count = [@diff_enju_calil, @enju_items_no_isbn].map(&:count).sum
+      td.count = [@diff_calil_enju, @calil_items_no_isbn].map(&:count).sum
+
+  - unless [@diff_calil_enju, @diff_enju_calil, @enju_items_no_isbn, @calil_items_no_isbn].all?(&:empty?)
+    .compare
+      div
+        h2 Enju のみ
+        table.entries
+          - @diff_enju_calil.each do |book|
+            tr
+              td: a target="_blank" href=enju_book_url(book.id) = book.isbn
+              td = book.title
+          - @enju_items_no_isbn.each do |book|
+            tr
+              td
+              td = book.title
+      div
+        h2 カーリルのみ
+        table.entries
+          - @diff_calil_enju.each do |book|
+            tr
+              td: a target="_blank" href=calil_book_url(book.id) = book.isbn
+              td = book.title
+          - @calil_items_no_isbn.each do |book|
+            tr
+              td
+              td = book.title

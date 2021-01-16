@@ -1,0 +1,56 @@
+*
+  padding: 0
+  margin: 0
+
+body
+  padding: 1rem
+  font-family: "Yu Gothic", YuGothic, sans-serif
+  font-weight: 500
+  line-height: 1.25
+
+table
+  border-collapse: collapse
+
+h1
+  font-size: 1.5rem
+  line-height: 1
+  margin: 0 0 1rem
+
+h2
+  font-size: 1.2rem
+  line-height: 1
+  margin: 0 0 1rem
+
+input[type="text"]
+  font-size: 0.9rem
+
+input[type="submit"]
+  font-size: 0.9rem
+  margin-left: 0.5rem
+
+.counts
+  margin: 1rem 0
+  font-size: 0.85rem
+  @mixin cell
+    padding: 0.2em 0.4em
+    border: 1px solid #888
+  > thead > tr > th
+    @include cell
+    min-width: 6em
+  > tbody > tr > td
+    @include cell
+    text-align: right
+
+.entries
+  font-size: 0.85rem
+  margin: 1rem 1rem 0 0
+  > tbody > tr >
+    th, td
+      padding: 0.2em 0.4em
+      border: 1px solid #888
+      vertical-align: top
+
+.compare
+  display: flex
+  > div
+    flex: 1
