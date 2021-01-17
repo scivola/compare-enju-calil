@@ -87,7 +87,7 @@ def enju(query)
   response = Faraday.get url,
       utf8: '✓',
       query: query,
-      per_page: '10000'
+      per_page: '1000'
   data = JSON.parse(response.body)
   data["results"].map{ |book| EnjuBook.new(book) }
 end
