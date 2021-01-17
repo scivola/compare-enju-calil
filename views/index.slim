@@ -20,7 +20,7 @@ form action=url_for("./")
         table.entries
           - @diff_enju_calil.each do |book|
             tr
-              td: a target="_blank" href=enju_book_url(book.id) = book.isbn
+              td.isbn: a target="_blank" href=enju_book_url(book.id) = book.isbn
               td = book.title
           - @enju_items_no_isbn.each do |book|
             tr
@@ -31,7 +31,7 @@ form action=url_for("./")
         table.entries
           - @diff_calil_enju.each do |book|
             tr
-              td: a target="_blank" href=calil_book_url(book.id) = book.isbn
+              td.isbn: a target="_blank" href=calil_book_url(book.id) = book.isbn
               td = book.title
           - @calil_items_no_isbn.each do |book|
             tr
